@@ -1,0 +1,557 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Portfolio",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/experiences": {
+            "get": {
+                "tags": [
+                    "Experiences"
+                ],
+                "summary": "Получение списка работ",
+                "operationId": "857d2fcc32f3ee91cc5712a86b611d94",
+                "responses": {
+                    "200": {
+                        "description": "Список experiences",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExperienceResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/experiences/{experience}": {
+            "get": {
+                "tags": [
+                    "Experiences"
+                ],
+                "summary": "Получение одной работы",
+                "operationId": "25ae5765bbea39c31dc6ee5a577ea5f8",
+                "parameters": [
+                    {
+                        "parameter": "experience",
+                        "name": "experienceId",
+                        "in": "path",
+                        "description": "Уникальный ключ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Experience",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExperienceResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/projects": {
+            "get": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Получение списка проектов",
+                "operationId": "fbc21feeb3df8a2cb519efb6480ae7d9",
+                "responses": {
+                    "200": {
+                        "description": "Список projects",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ProjectResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/projects/{project}": {
+            "get": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Получение одного проекта",
+                "operationId": "5dffe8ed14d1a7d4bb6a0296b271e96d",
+                "parameters": [
+                    {
+                        "parameter": "project",
+                        "name": "projectId",
+                        "in": "path",
+                        "description": "Уникальный ключ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Project",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/technologies": {
+            "get": {
+                "tags": [
+                    "Technologies"
+                ],
+                "summary": "Получение списка технологий",
+                "operationId": "1ed74b6dc36c856330c965c6f5a9f056",
+                "responses": {
+                    "200": {
+                        "description": "Список technologies",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TechnologyResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/technologies/{technology}": {
+            "get": {
+                "tags": [
+                    "Technologies"
+                ],
+                "summary": "Получение одной технологии",
+                "operationId": "4b28db09cbe03b931c27c3fc0b790af3",
+                "parameters": [
+                    {
+                        "parameter": "technology",
+                        "name": "technologyId",
+                        "in": "path",
+                        "description": "Уникальный ключ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Technology",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TechnologyResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/trainings": {
+            "get": {
+                "tags": [
+                    "Trainings"
+                ],
+                "summary": "Получение списка курсов",
+                "operationId": "7ad19f15e99a01de694b359ae175cf99",
+                "responses": {
+                    "200": {
+                        "description": "Список trainings",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TrainingResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/trainings/{training}": {
+            "get": {
+                "tags": [
+                    "Trainings"
+                ],
+                "summary": "Получение одного курса",
+                "operationId": "8f2917eb966a0b4b8ab1e221e2ae343e",
+                "parameters": [
+                    {
+                        "parameter": "training",
+                        "name": "trainingId",
+                        "in": "path",
+                        "description": "Уникальный ключ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Training",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TrainingResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Получение списка пользователей",
+                "operationId": "566aed8efb436ca506e0ef51a032ecd9",
+                "responses": {
+                    "200": {
+                        "description": "Список users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UserResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{user}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Получение одного пользователя",
+                "operationId": "f310aa35b9243239c65dbc8b8f4b135e",
+                "parameters": [
+                    {
+                        "parameter": "user",
+                        "name": "userId",
+                        "in": "path",
+                        "description": "Уникальный ключ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ExperienceResource": {
+                "title": "ExperienceResource",
+                "description": "Experiences",
+                "properties": {
+                    "id": {
+                        "description": "Идентификатор записи",
+                        "type": "integer"
+                    },
+                    "position": {
+                        "description": "Должность",
+                        "type": "string"
+                    },
+                    "short_description": {
+                        "description": "Краткое описание",
+                        "type": "string"
+                    },
+                    "date_from": {
+                        "description": "Дата до",
+                        "type": "string"
+                    },
+                    "date_to": {
+                        "description": "Дата после",
+                        "type": "string"
+                    },
+                    "company_name": {
+                        "description": "Компания",
+                        "type": "string"
+                    },
+                    "technologies": {
+                        "description": "Технологии",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "ExperienceResource"
+                }
+            },
+            "ProjectResource": {
+                "title": "ProjectResource",
+                "description": "Projects",
+                "properties": {
+                    "id": {
+                        "description": "Идентификатор записи",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Название",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Описание",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Должность",
+                        "type": "string"
+                    },
+                    "link": {
+                        "description": "Ссылка",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "Картинка",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "ProjectResource"
+                }
+            },
+            "TechnologyResource": {
+                "title": "TechnologyResource",
+                "description": "Technologies",
+                "properties": {
+                    "id": {
+                        "description": "Идентификатор записи",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Название",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "Картинка",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "TechnologyResource"
+                }
+            },
+            "TrainingResource": {
+                "title": "TrainingResource",
+                "description": "Trainings",
+                "properties": {
+                    "id": {
+                        "description": "Идентификатор записи",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Название",
+                        "type": "string"
+                    },
+                    "qualification": {
+                        "description": "Квалификация",
+                        "type": "string"
+                    },
+                    "programme_name": {
+                        "description": "Программа",
+                        "type": "string"
+                    },
+                    "date_from": {
+                        "description": "Дата до",
+                        "type": "string"
+                    },
+                    "date_to": {
+                        "description": "Дата после",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "TrainingResource"
+                }
+            },
+            "UserResource": {
+                "title": "UserResource",
+                "description": "Users",
+                "properties": {
+                    "id": {
+                        "description": "Идентификатор записи",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Имя",
+                        "type": "string"
+                    },
+                    "surname": {
+                        "description": "Фамилия",
+                        "type": "string"
+                    },
+                    "position": {
+                        "description": "Должность",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "О себе",
+                        "type": "string"
+                    },
+                    "interests": {
+                        "description": "Интересы",
+                        "type": "string"
+                    },
+                    "linkedin": {
+                        "description": "linkedin",
+                        "type": "string"
+                    },
+                    "telegram": {
+                        "description": "telegram",
+                        "type": "string"
+                    },
+                    "gitlab": {
+                        "description": "gitlab",
+                        "type": "string"
+                    },
+                    "github": {
+                        "description": "github",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "image",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "UserResource"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Experiences",
+            "description": "Experiences"
+        },
+        {
+            "name": "Projects",
+            "description": "Projects"
+        },
+        {
+            "name": "Technologies",
+            "description": "Technologies"
+        },
+        {
+            "name": "Trainings",
+            "description": "Trainings"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        }
+    ]
+}
